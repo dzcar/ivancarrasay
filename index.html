@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Iván Carrasay — Music Producer & Mixing Engineer</title>
+<meta name="description" content="Iván Carrasay — Productor musical e ingeniero de mezcla y mastering de Córdoba, Argentina. Pop, EDM y Pop/Rock con sonido listo para Spotify." />
+<meta property="og:title" content="Iván Carrasay — Music Producer & Mixing Engineer" />
+<meta property="og:description" content="Productor musical e ingeniero de mezcla y mastering de Córdoba, Argentina." />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#0a1020" />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink: "#060912",
+          night: "#0a1020",
+          panel: "#0e1730",
+          steel: "#1b294d",
+          sky: "#3b82f6",
+          azure: "#60a5fa",
+          ice: "#bfdbfe",
+        },
+        fontFamily: {
+          sans: ["Inter", "system-ui", "sans-serif"],
+          display: ["Space Grotesk", "Inter", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  html { background-color: #060912; scroll-behavior: smooth; }
+  body { background-color: #060912; color: #bfdbfe; -webkit-font-smoothing: antialiased; }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reviews-track::-webkit-scrollbar { height: 6px; }
+  .reviews-track::-webkit-scrollbar-thumb {
+    background: #1b294d;
+    border-radius: 999px;
+  }
+  .reviews-track {
+    scrollbar-width: thin;
+    scrollbar-color: #1b294d transparent;
+  }
+
+  ::selection { background-color: rgba(59, 130, 246, 0.3); }
+</style>
+</head>
+
+<body class="bg-ink text-ice font-sans antialiased">
+
+  <!-- NAV -->
+  <header class="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-ink/80 backdrop-blur-md">
+    <nav class="mx-auto max-w-6xl px-5 h-16 flex items-center justify-between">
+      <a href="#home" class="font-display text-lg font-bold tracking-tight text-white">
+        IVÁN<span class="text-sky">.</span>CARRASAY
+      </a>
+
+      <div class="hidden md:flex items-center gap-8 text-sm text-ice/70">
+        <a href="#home" class="hover:text-white transition" data-i18n="nav_home">Inicio</a>
+        <a href="#music" class="hover:text-white transition" data-i18n="nav_music">Música</a>
+        <a href="#reviews" class="hover:text-white transition" data-i18n="nav_reviews">Reseñas</a>
+        <a href="#contact" class="hover:text-white transition" data-i18n="nav_contact">Contacto</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <div class="flex items-center rounded-full border border-white/10 bg-panel p-0.5 text-xs font-semibold">
+          <button id="lang-es" onclick="setLang('es')" class="px-3 py-1 rounded-full transition" aria-pressed="true">ES</button>
+          <button id="lang-en" onclick="setLang('en')" class="px-3 py-1 rounded-full transition" aria-pressed="false">EN</button>
+        </div>
+        <button id="menu-toggle" onclick="toggleMenu()" class="md:hidden p-2 text-ice/80" aria-label="Menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-night px-5 py-4 flex-col gap-3 text-sm">
+      <a href="#home" onclick="closeMenu()" class="block py-2 text-ice/80" data-i18n="nav_home">Inicio</a>
+      <a href="#music" onclick="closeMenu()" class="block py-2 text-ice/80" data-i18n="nav_music">Música</a>
+      <a href="#reviews" onclick="closeMenu()" class="block py-2 text-ice/80" data-i18n="nav_reviews">Reseñas</a>
+      <a href="#contact" onclick="closeMenu()" class="block py-2 text-ice/80" data-i18n="nav_contact">Contacto</a>
+    </div>
+  </header>
+
+  <main class="pt-16">
+    <!-- HERO / BIO -->
+    <section id="home" class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-night via-ink to-ink"></div>
+      <div class="absolute -top-32 -right-32 -z-10 h-96 w-96 rounded-full bg-sky/10 blur-3xl"></div>
+
+      <div class="mx-auto max-w-6xl px-5 py-20 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-up">
+          <p class="text-sky font-semibold text-sm tracking-widest uppercase mb-4" data-i18n="hero_tag">Córdoba, Argentina</p>
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-white text-balance">
+            Iván Carrasay
+          </h1>
+          <p class="mt-4 text-lg text-azure font-medium" data-i18n="hero_role">Productor Musical · Ingeniero de Mezcla y Mastering</p>
+          <p class="mt-6 text-ice/70 leading-relaxed max-w-lg text-pretty" data-i18n="hero_bio">
+            Ayudo a artistas de todo el mundo a lograr un sonido moderno, dinámico y listo para Spotify. Especializado en Pop, EDM y Pop/Rock — desde un demo crudo hasta un master final que compite en cualquier plataforma.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#contact" class="rounded-full bg-sky px-6 py-3 text-sm font-semibold text-white hover:bg-azure transition" data-i18n="hero_cta">Trabajemos juntos</a>
+            <a href="#music" class="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-ice hover:bg-panel transition" data-i18n="hero_cta2">Escuchar música</a>
+          </div>
+          <div class="mt-10 flex items-center gap-6 text-sm text-ice/60">
+            <div>
+              <span class="block text-2xl font-display font-bold text-white">22</span>
+              <span data-i18n="stat_reviews">Reseñas 5 estrellas</span>
+            </div>
+            <div class="h-8 w-px bg-white/10"></div>
+            <div>
+              <span class="block text-2xl font-display font-bold text-white">2019</span>
+              <span data-i18n="stat_since">Produciendo desde</span>
+            </div>
+            <div class="h-8 w-px bg-white/10"></div>
+            <div>
+              <span class="block text-2xl font-display font-bold text-white">Ableton</span>
+              <span data-i18n="stat_daw">Live 12</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-up">
+          <div class="relative mx-auto max-w-sm">
+            <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-sky/30 to-transparent blur-xl"></div>
+            <!-- Reemplazá por la foto real de Iván -->
+            <img
+              src="https://placehold.co/600x750/0e1730/3b82f6?text=Iv%C3%A1n+Carrasay"
+              alt="Iván Carrasay en el estudio"
+              class="relative rounded-3xl border border-white/10 object-cover w-full aspect-[4/5]"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC / SPOTIFY -->
+    <section id="music" class="border-t border-white/5 bg-night/40">
+      <div class="mx-auto max-w-6xl px-5 py-20">
+        <div class="fade-up max-w-2xl">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white" data-i18n="music_title">Trabajos seleccionados</h2>
+          <p class="mt-3 text-ice/60" data-i18n="music_sub">Una playlist pública con producciones, mezclas y masters.</p>
+        </div>
+        <div class="fade-up mt-10 rounded-2xl border border-white/10 bg-panel/60 p-2 sm:p-4">
+          <iframe
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/playlist/0jS7I2H5FJ3B42nMHASFp8?utm_source=generator&theme=0"
+            width="100%"
+            height="420"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Spotify Playlist"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="border-t border-white/5">
+      <div class="mx-auto max-w-6xl px-5 py-20">
+        <div class="fade-up flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h2 class="font-display text-3xl sm:text-4xl font-bold text-white" data-i18n="rev_title">Lo que dicen los artistas</h2>
+            <p class="mt-3 text-ice/60" data-i18n="rev_sub">Reseñas reales de clientes en SoundBetter.</p>
+          </div>
+          <a href="https://soundbetter.com/profiles/576321-ivan-carrasay" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-sky hover:text-azure transition">
+            <span data-i18n="rev_link">Ver perfil en SoundBetter</span> →
+          </a>
+        </div>
+
+        <div id="reviews-track" class="reviews-track fade-up mt-10 flex gap-5 overflow-x-auto pb-4 snap-x">
+          <!-- Reviews injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="border-t border-white/5 bg-gradient-to-b from-ink to-night">
+      <div class="mx-auto max-w-6xl px-5 py-20">
+        <div class="fade-up max-w-2xl">
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white" data-i18n="contact_title">Hablemos de tu proyecto</h2>
+          <p class="mt-3 text-ice/60" data-i18n="contact_sub">Contame tu idea o mandame tu demo. Respondo a la brevedad.</p>
+        </div>
+
+        <div class="fade-up mt-10 grid sm:grid-cols-2 gap-5 max-w-2xl">
+          <a
+            href="https://wa.me/5493510000000"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-panel/60 p-6 hover:border-sky/50 hover:bg-panel transition"
+          >
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky/15 text-sky">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.815zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.71.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+              </svg>
+            </span>
+            <span>
+              <span class="block text-xs uppercase tracking-widest text-ice/50" data-i18n="contact_wa_label">WhatsApp</span>
+              <span class="block font-semibold text-white" data-i18n="contact_wa">Escribime por WhatsApp</span>
+            </span>
+          </a>
+
+          <a
+            href="mailto:contacto@ivancarrasay.com"
+            class="group flex items-center gap-4 rounded-2xl border border-white/10 bg-panel/60 p-6 hover:border-sky/50 hover:bg-panel transition"
+          >
+            <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-sky/15 text-sky">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="m22 7-10 5L2 7" />
+              </svg>
+            </span>
+            <span>
+              <span class="block text-xs uppercase tracking-widest text-ice/50" data-i18n="contact_email_label">Email</span>
+              <span class="block font-semibold text-white">contacto@ivancarrasay.com</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/5 bg-ink">
+    <div class="mx-auto max-w-6xl px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-ice/50">
+      <p>© <span id="year"></span> Iván Carrasay — <span data-i18n="footer_loc">Córdoba, Argentina</span></p>
+      <div class="flex gap-5">
+        <a href="https://soundbetter.com/profiles/576321-ivan-carrasay" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">SoundBetter</a>
+        <a href="https://open.spotify.com/playlist/0jS7I2H5FJ3B42nMHASFp8" target="_blank" rel="noopener noreferrer" class="hover:text-white transition">Spotify</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---------------------------------------------------------------
+    // CONTENT (i18n + reviews) — equivalent to lib/content.ts
+    // ---------------------------------------------------------------
+    const I18N = {
+      es: {
+        nav_home: "Inicio",
+        nav_music: "Música",
+        nav_reviews: "Reseñas",
+        nav_contact: "Contacto",
+        hero_tag: "Córdoba, Argentina",
+        hero_role: "Productor Musical · Ingeniero de Mezcla y Mastering",
+        hero_bio: "Ayudo a artistas de todo el mundo a lograr un sonido moderno, dinámico y listo para Spotify. Especializado en Pop, EDM y Pop/Rock — desde un demo crudo hasta un master final que compite en cualquier plataforma.",
+        hero_cta: "Trabajemos juntos",
+        hero_cta2: "Escuchar música",
+        stat_reviews: "Reseñas 5 estrellas",
+        stat_since: "Produciendo desde",
+        stat_daw: "Live 12",
+        music_title: "Trabajos seleccionados",
+        music_sub: "Una playlist pública con producciones, mezclas y masters.",
+        rev_title: "Lo que dicen los artistas",
+        rev_sub: "Reseñas reales de clientes en SoundBetter.",
+        rev_link: "Ver perfil en SoundBetter",
+        contact_title: "Hablemos de tu proyecto",
+        contact_sub: "Contame tu idea o mandame tu demo. Respondo a la brevedad.",
+        contact_wa: "Escribime por WhatsApp",
+        contact_wa_label: "WhatsApp",
+        contact_email_label: "Email",
+        footer_loc: "Córdoba, Argentina",
+      },
+      en: {
+        nav_home: "Home",
+        nav_music: "Music",
+        nav_reviews: "Reviews",
+        nav_contact: "Contact",
+        hero_tag: "Córdoba, Argentina",
+        hero_role: "Music Producer · Mixing & Mastering Engineer",
+        hero_bio: "I help artists around the world achieve a modern, dynamic, Spotify-ready sound. Specialized in Pop, EDM and Pop/Rock — from a rough demo to a finished master that competes on any platform.",
+        hero_cta: "Let's work together",
+        hero_cta2: "Listen to music",
+        stat_reviews: "5-star reviews",
+        stat_since: "Producing since",
+        stat_daw: "Live 12",
+        music_title: "Selected work",
+        music_sub: "A public playlist with productions, mixes and masters.",
+        rev_title: "What artists say",
+        rev_sub: "Real client reviews from SoundBetter.",
+        rev_link: "View SoundBetter profile",
+        contact_title: "Let's talk about your project",
+        contact_sub: "Tell me your idea or send me your demo. I reply quickly.",
+        contact_wa: "Message me on WhatsApp",
+        contact_wa_label: "WhatsApp",
+        contact_email_label: "Email",
+        footer_loc: "Córdoba, Argentina",
+      },
+    };
+
+    const REVIEWS = [
+      { text: "Ivan is that producer who understands the vibe as soon as he hears your demo, has very good aesthetic criteria and gives very good ideas in terms of production. He works in record time and still the result is wonderful — the professional you are looking for without a doubt!", author: "Malena Bon" },
+      { text: "Ivàn Carrasay is a true virtuoso in sound engineering. His ability to capture the essence of projects and elevate them is simply remarkable. You get more than just a sound engineer, you have a creative and passionate partner.", author: "Sissi" },
+      { text: "I have the pleasure to work with Ivàn and he is amazing at making sounds sound perfect! He always understands what I want and always delivers great results. I really REALLY recommend Ivàn for mixing, mastering or even songwriting!", author: "CALL ME VENUS" },
+      { text: "This was my 2nd time working with Ivan and it won't be the last. Very communicative, incredibly receptive to feedback, very collaborative and he brings so much enthusiasm and creativity to the project. Really happy with the results!", author: "Verified Client" },
+      { text: "I had the pleasure of collaborating with Ivan on an EP, and it was a truly exceptional experience. His attention to detail and ability to translate ideas into musical masterpieces make him a standout collaborator.", author: "Felipe Pietrangelo" },
+      { text: "I trusted him and I am very happy with the result. He is a great producer, with a good ear. One of the best decisions you make in life is to work with him. I recommend him 100%.", author: "Valen Guerra" },
+      { text: "Ivan is a truly incredible music producer and artist. He is able to translate ideas and demos into fully realised productions with ease and confidence. Very professional and detailed in his work.", author: "Verified Client" },
+      { text: "He gave a quality leap to my song where he participated as mixing and mastering engineer. I recommend that you work with a young and talented person like Ivan.", author: "Cesar Masachessi" },
+    ];
+
+    const SUPPORTED = ["es", "en"];
+
+    // ---------------------------------------------------------------
+    // STAR ICON (built once, reused per review)
+    // ---------------------------------------------------------------
+    const STAR_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+
+    function renderReviews() {
+      const track = document.getElementById("reviews-track");
+      track.innerHTML = REVIEWS.map((r) => `
+        <figure class="snap-start shrink-0 w-[300px] sm:w-[360px] rounded-2xl border border-white/10 bg-panel/60 p-6 flex flex-col">
+          <div class="flex gap-0.5 text-sky mb-4">
+            ${STAR_SVG.repeat(5)}
+          </div>
+          <blockquote class="text-ice/80 leading-relaxed text-sm flex-1">${r.text}</blockquote>
+          <figcaption class="mt-5 text-sm font-semibold text-white">${r.author}</figcaption>
+        </figure>
+      `).join("");
+    }
+
+    // ---------------------------------------------------------------
+    // LANGUAGE HANDLING
+    // ---------------------------------------------------------------
+    function getInitialLang() {
+      const param = new URLSearchParams(window.location.search).get("lang");
+      if (param && SUPPORTED.includes(param.toLowerCase())) return param.toLowerCase();
+      const stored = window.localStorage.getItem("lang");
+      if (stored && SUPPORTED.includes(stored)) return stored;
+      return "es";
+    }
+
+    function applyLang(lang) {
+      const t = I18N[lang];
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (t[key]) el.textContent = t[key];
+      });
+
+      // Toggle button active styles
+      SUPPORTED.forEach((l) => {
+        const btn = document.getElementById("lang-" + l);
+        if (l === lang) {
+          btn.classList.add("bg-sky", "text-white");
+          btn.classList.remove("text-ice/60");
+          btn.setAttribute("aria-pressed", "true");
+        } else {
+          btn.classList.remove("bg-sky", "text-white");
+          btn.classList.add("text-ice/60");
+          btn.setAttribute("aria-pressed", "false");
+        }
+      });
+
+      document.documentElement.setAttribute("lang", lang);
+      window.localStorage.setItem("lang", lang);
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url);
+    }
+
+    function setLang(lang) {
+      applyLang(lang);
+    }
+
+    // ---------------------------------------------------------------
+    // MOBILE MENU
+    // ---------------------------------------------------------------
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("menu-toggle");
+      const isHidden = menu.classList.contains("hidden");
+      if (isHidden) {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+        btn.setAttribute("aria-expanded", "true");
+      } else {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("menu-toggle");
+      menu.classList.add("hidden");
+      menu.classList.remove("flex");
+      btn.setAttribute("aria-expanded", "false");
+    }
+
+    // ---------------------------------------------------------------
+    // SCROLL REVEAL
+    // ---------------------------------------------------------------
+    function initScrollReveal() {
+      const els = document.querySelectorAll(".fade-up");
+      if (!("IntersectionObserver" in window)) {
+        els.forEach((el) => el.classList.add("in"));
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in");
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      els.forEach((el) => io.observe(el));
+    }
+
+    // ---------------------------------------------------------------
+    // INIT
+    // ---------------------------------------------------------------
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderReviews();
+    applyLang(getInitialLang());
+    initScrollReveal();
+  </script>
+</body>
+</html>
