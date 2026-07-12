@@ -3,11 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Iván Carrasay — Music Producer & Mixing Engineer</title>
-<meta name="description" content="Iván Carrasay — Productor musical e ingeniero de mezcla y mastering de Córdoba, Argentina. Pop, EDM y Pop/Rock con sonido listo para Spotify." />
-<meta property="og:title" content="Iván Carrasay — Music Producer & Mixing Engineer" />
-<meta property="og:description" content="Productor musical e ingeniero de mezcla y mastering de Córdoba, Argentina." />
+<title>Iván Carrasay — Productor Musical y Mezcla/Mastering en Córdoba, Argentina</title>
+<meta name="description" content="Productor musical e ingeniero de mezcla y mastering en Córdoba, Argentina. Sonido pop, EDM y pop/rock listo para Spotify. Contactame para tu proyecto." />
+<link rel="canonical" href="https://ivancarrasayaudio.com/" />
+<link rel="alternate" hreflang="es" href="https://ivancarrasayaudio.com/?lang=es" />
+<link rel="alternate" hreflang="en" href="https://ivancarrasayaudio.com/?lang=en" />
+<link rel="alternate" hreflang="x-default" href="https://ivancarrasayaudio.com/" />
+<meta property="og:title" content="Iván Carrasay — Productor Musical y Mezcla/Mastering en Córdoba, Argentina" />
+<meta property="og:description" content="Sonido pop, EDM y pop/rock listo para Spotify. Mezclas y masters para artistas de Argentina y el mundo." />
+<meta property="og:url" content="https://ivancarrasayaudio.com/" />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://ivancarrasayaudio.com/productor-musical-cordoba-ivan-carrasay.png" />
+<meta property="og:locale" content="es_AR" />
 <meta name="theme-color" content="#131b24" />
 
 <!-- Tailwind via CDN -->
@@ -117,7 +124,7 @@
           <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.05] text-white text-balance">
             Iván Carrasay
           </h1>
-          <p class="mt-4 text-lg text-azure font-medium" data-i18n="hero_role">Productor Musical · Ingeniero de Mezcla y Mastering</p>
+          <h2 class="mt-4 text-lg text-azure font-medium" data-i18n="hero_role">Productor Musical · Ingeniero de Mezcla y Mastering</h2>
           <p class="mt-6 text-ice/70 leading-relaxed max-w-lg text-pretty" data-i18n="hero_bio">
             Ivan trabaja con artistas de todo el mundo, ayudándolos a transformar ideas, demos y grabaciones en producciones profesionales listas para su lanzamiento. 
             Especializado en Pop, Pop/Rock, EDM y R&B, ofrece un sonido moderno, dinámico y competitivo para las principales plataformas de streaming.
@@ -138,8 +145,8 @@
           <div class="relative mx-auto max-w-sm">
             <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-sky/30 to-transparent blur-xl"></div>
             <img
-              src="foto_landing.PNG"
-              alt="Iván Carrasay en el estudio"
+              src="productor-musical-cordoba-ivan-carrasay.PNG"
+              alt="Iván Carrasay, productor musical e ingeniero de mezcla y mastering, en su estudio de Córdoba, Argentina"
               class="relative rounded-3xl border border-white/10 object-cover w-full aspect-[4/5]"
             />
           </div>
@@ -250,6 +257,8 @@
     // ---------------------------------------------------------------
     const I18N = {
       es: {
+        meta_title: "Iván Carrasay — Productor Musical y Mezcla/Mastering en Córdoba, Argentina",
+        meta_description: "Productor musical e ingeniero de mezcla y mastering en Córdoba, Argentina. Sonido pop, EDM y pop/rock listo para Spotify. Contactame para tu proyecto.",
         nav_home: "Inicio",
         nav_music: "Música",
         nav_reviews: "Reseñas",
@@ -275,6 +284,8 @@
         footer_loc: "Córdoba, Argentina",
       },
       en: {
+        meta_title: "Iván Carrasay — Music Producer & Mixing/Mastering Engineer in Córdoba, Argentina",
+        meta_description: "Music producer and mixing/mastering engineer based in Córdoba, Argentina. Modern pop, EDM and pop/rock sound, Spotify-ready. Get in touch about your project.",
         nav_home: "Home",
         nav_music: "Music",
         nav_reviews: "Reviews",
@@ -349,6 +360,14 @@
         const key = el.getAttribute("data-i18n");
         if (t[key]) el.textContent = t[key];
       });
+
+      if (t.meta_title) document.title = t.meta_title;
+      if (t.meta_description) {
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute("content", t.meta_description);
+        const ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute("content", t.meta_description);
+      }
 
       // Toggle button active styles
       SUPPORTED.forEach((l) => {
@@ -427,10 +446,39 @@
     // ---------------------------------------------------------------
     // INIT
     // ---------------------------------------------------------------
+    // STRUCTURED DATA (schema.org)
+    // ---------------------------------------------------------------
+    function injectStructuredData() {
+      const data = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Iván Carrasay",
+        "jobTitle": "Productor Musical, Ingeniero de Mezcla y Mastering",
+        "url": "https://ivancarrasayaudio.com/",
+        "image": "https://ivancarrasayaudio.com/productor-musical-cordoba-ivan-carrasay.png",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Córdoba",
+          "addressRegion": "Córdoba",
+          "addressCountry": "AR"
+        },
+        "sameAs": [
+          "https://soundbetter.com/profiles/576321-ivan-carrasay",
+          "https://open.spotify.com/playlist/0jS7I2H5FJ3B42nMHASFp8"
+        ],
+        "knowsAbout": ["Producción musical", "Mezcla de audio", "Mastering", "Pop", "EDM", "Pop/Rock", "R&B"]
+      };
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    }
+
     document.getElementById("year").textContent = new Date().getFullYear();
     renderReviews();
     applyLang(getInitialLang());
     initScrollReveal();
+    injectStructuredData();
   </script>
 </body>
 </html>
